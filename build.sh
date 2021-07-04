@@ -3,7 +3,7 @@ echo "Cloning dependencies"
 git clone --depth=1 https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-5484270 -b 9.0 clang
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc
 git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 gcc32
-git clone https://github.com/2e-dev/AnyKernel3.git  --depth=1 AnyKernel
+git clone https://github.com/00p513-dev/tremolite-anykernel.git  --depth=1 AnyKernel
 
 echo "Done"
 KERNEL_DIR=$(pwd)
@@ -42,7 +42,7 @@ modules_install
 zipping() {
     cd AnyKernel || exit 1
     cp ../out/arch/arm64/boot/Image.gz-dtb .
-    zip -r9 Styx-2e-BETA-${TANGGAL}.zip *
+    zip -r9 tremolite-2e-${TANGGAL}.zip *
     cd ..
 }
 
