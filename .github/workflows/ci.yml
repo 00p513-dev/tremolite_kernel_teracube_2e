@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+    - name: Build kernel
+      run: bash build.sh
