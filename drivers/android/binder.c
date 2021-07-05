@@ -711,7 +711,8 @@ enum {
 	BINDER_LOOPER_STATE_EXITED      = 0x04,
 	BINDER_LOOPER_STATE_INVALID     = 0x08,
 	BINDER_LOOPER_STATE_WAITING     = 0x10,
-	BINDER_LOOPER_STATE_POLL        = 0x20,
+	BINDER_LOOPER_STATE_NEED_RETURN = 0x20,
+	BINDER_LOOPER_STATE_POLL	= 0x40,
 };
 
 /**
@@ -5535,6 +5536,7 @@ static int binder_thread_release(struct binder_proc *proc,
 	    waitqueue_active(&thread->wait)) {
 		wake_up_poll(&thread->wait, POLLHUP | POLLFREE);
 	}
+
 
 	binder_inner_proc_unlock(thread->proc);
 
