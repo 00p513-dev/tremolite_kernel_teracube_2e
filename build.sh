@@ -41,6 +41,8 @@ modules_install
 # Zipping
 zipping() {
     cd AnyKernel || exit 1
+    git reset --hard
+    git clean -fdx
     cp ../out/arch/arm64/boot/Image.gz-dtb .
     zip -r9 tremolite-2e-${TANGGAL}.zip *
     cd ..
